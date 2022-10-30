@@ -8,6 +8,20 @@
 - SQLite
 - SQLALCHEMY
 
-### [Course location]: The Complete Python Pro Bootcamp for 2022
+## Installation
+Install dotenv to hide API keys
 
-[Course location]: <https://www.udemy.com/course/100-days-of-code/>
+```sh
+pip install python dotenv
+```
+
+Create .env file, and store all api keys inside
+
+
+
+
+
+
+### The Complete Python Pro Bootcamp for 2022 - [Course ref]
+
+[Course ref]: <https://www.udemy.com/course/100-days-of-code/>
