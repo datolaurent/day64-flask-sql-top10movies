@@ -15,7 +15,11 @@ Install dotenv to hide API keys
 pip install python dotenv
 ```
 
-Create .env file, and store all api keys inside
+Create .env file, and store all api keys inside as follow
+```sh
+my_key=tuy2344jgh23g42
+your_key=tyfstf342987sdjf
+```
 
 
 
