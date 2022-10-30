@@ -10,11 +10,13 @@ import os
 import requests
 
 
+# LOAD ENVIRONMENT VARIABLES FROM .ENV FILE
 def configure():
     load_dotenv()
 
 
 configure()
+
 IMG_PATH = 'https://www.themoviedb.org/t/p/w600_and_h900_bestv2'
 TMDB_API_KEY = os.getenv("TMDB_API_KEY")
 TMDB_ENDPOINT = 'https://api.themoviedb.org/3/search/movie'
@@ -23,13 +25,7 @@ film_dict = {
     'query': None
 }
 
-local_result = ''
-
-# https://api.themoviedb.org/3/search/movie?api_key=33c41174ff6eed299cd4510867c5f54a&language=en-US&query=Thor%3A%20Ragnarok&page=1&include_adult=false
-# https://api.themoviedb.org/3/search/movie?api_key=33c41174ff6eed299cd4510867c5f54a&query=Thor%3A%20Ragnarok
-# https://image.tmdb.org/t/p/w500/rzRwTcFvttcN1ZpX2xv4j3tSdJu.jpg
-
-
+# CREATE APP
 app = Flask(__name__)
 app.app_context().push()
 app.config['SECRET_KEY'] = os.getenv("SECRET_KEY")
@@ -71,14 +67,14 @@ def home():
 
 @app.route('/edit', methods=['GET', 'POST'])
 def edit():
-    print(f'DEBUG 1: {request.method}')
+    # print(f'DEBUG 1: {request.method}')
     if request.args.get('id'):
         movie_id = request.args.get('id')
         movie = Movie.query.filter_by(id=movie_id).first()
         # create form
         form_edit = EditMovieForm(id=movie_id)
         # form_edit.review.data='HELLO Everybody'
-        # TODO : Check if there is already a review, if yes prepopulate in the form, else leave empty
+        # TODO : Check if there is already a review, if yes pre-populate in the form, else leave empty
         if request.method == 'GET' and movie.review:
             form_edit.review.data = movie.review
         # db.session.close()
