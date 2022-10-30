@@ -1,4 +1,4 @@
-# Day64 of 100 Days of Code:  Top 10 movies
+# Day 64 of 100 Days of Code:  Top 10 movies
 
 ## Features
 - FLASK
